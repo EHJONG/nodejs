@@ -3,8 +3,10 @@ const app = express();
 const port = process.env.port || 3000;
 const router = require("./route/router");
 const user = require("./controller/user");
-const route = require("./route/router");
+const bodyParser = require("body-parser");
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(router);
 
 app.listen(port, (err) => {
@@ -15,4 +17,4 @@ app.listen(port, (err) => {
   }
 });
 
-route;
+router.route("").get().post().put().delete();

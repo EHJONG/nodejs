@@ -4,6 +4,10 @@ const port = process.env.port || 3000;
 const router = require("./route/router");
 const user = require("./controller/user");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
+
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost/howl");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
